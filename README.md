@@ -42,6 +42,6 @@ ruby Game.rb
 
 The given documentation was generated using [RDoc](https://ruby.github.io/rdoc/).
 
-You can find the full documentation of the project in the 
+You can find the full documentation of the project [here](https://Anubis303.github.io/UWr-Object-oriented-Programming-Project-Text-RPG-game/).
 
 
