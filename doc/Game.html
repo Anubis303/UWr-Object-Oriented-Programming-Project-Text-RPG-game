@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class Game - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+<div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  <p class="link">Object
+</div>
+
+    
+    
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-c-new">::new</a>
+    <li ><a href="#method-i-chosing_characters">#chosing_characters</a>
+    <li ><a href="#method-i-display_rules">#display_rules</a>
+    <li ><a href="#method-i-start">#start</a>
+    <li ><a href="#method-i-start_game">#start_game</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-Game">
+  <h1 id="class-Game" class="class">
+    class Game
+  </h1>
+
+  <section class="description">
+    
+<p>This class is a main, which uses other classes to execute the game.</p>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+
+
+
+     <section id="public-class-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Class Methods</h3>
+       </header>
+
+      <div id="method-c-new" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">new</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Initializes a new game</p>
+
+          <div class="method-source-code" id="new-source">
+            <pre><span class="ruby-comment"># File Project/Game.rb, line 18</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">initialize</span>
+  <span class="ruby-ivar">@character_1</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@character_2</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@field_1_i</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@field_2_i</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@name_1</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@name_2</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-ivar">@map</span> = <span class="ruby-keyword">nil</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-chosing_characters" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">chosing_characters</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          
+
+          <div class="method-source-code" id="chosing_characters-source">
+            <pre><span class="ruby-comment"># File Project/Game.rb, line 153</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">chosing_characters</span>
+
+  <span class="ruby-identifier">playable_characters</span> = <span class="ruby-keyword">nil</span>
+  <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&quot;characters.txt&quot;</span>, <span class="ruby-string">&quot;rb&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+    <span class="ruby-identifier">playable_characters</span> = <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">file</span>.<span class="ruby-identifier">read</span>)
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-comment"># Character select player 1</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;PLAYER 1\n&quot;</span>
+  <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Write a name of your character: &quot;</span>
+  <span class="ruby-ivar">@name_1</span> = <span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@name_1</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">20</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Quite a long name... Hope you remember it&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;From now on you are #{@name_1}. Now it&#39;s time to select a character class: &quot;</span>
+  <span class="ruby-identifier">playable_characters</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">element</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">playable_characters</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{index + 1}. #{element.type}: \tStrength #{element.strength}, \tPower #{element.power}, \tHP #{element.hp}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">choice</span> = <span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">choice</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;exit&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">choice</span> = <span class="ruby-identifier">choice</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">choice</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">choice</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">playable_characters</span>.<span class="ruby-identifier">length</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;EASTER EGG character for invalid input in character selection: Frog&quot;</span>
+    <span class="ruby-ivar">@character_1</span> = <span class="ruby-identifier">playable_characters</span>[<span class="ruby-identifier">playable_characters</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>].<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@character_1</span> = <span class="ruby-identifier">playable_characters</span>[<span class="ruby-identifier">choice</span>].<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@character_1</span>.<span class="ruby-identifier">give_name</span>(<span class="ruby-ivar">@name_1</span>)
+
+  <span class="ruby-comment"># Character select player 2</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n\n\n\n\nPLAYER 2\n&quot;</span>
+  <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Write a name of your character: &quot;</span>
+  <span class="ruby-ivar">@name_2</span> = <span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-ivar">@name_2</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">20</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Quite a long name... Hope you remember it&quot;</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;From now on you are #{@name_2}. Now it&#39;s time to select a character class: &quot;</span>
+  <span class="ruby-identifier">playable_characters</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">element</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+    <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">playable_characters</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{index + 1}. #{element.type}: \tStrength #{element.strength}, \tPower #{element.power}, \tHP #{element.hp}&quot;</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-identifier">choice</span> = <span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">choice</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;exit&quot;</span>
+    <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-identifier">choice</span> = <span class="ruby-identifier">choice</span>.<span class="ruby-identifier">to_i</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">choice</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">choice</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">playable_characters</span>.<span class="ruby-identifier">length</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;EASTER EGG character for invalid input in character selection: Frog&quot;</span>
+    <span class="ruby-ivar">@character_2</span> = <span class="ruby-identifier">playable_characters</span>[<span class="ruby-identifier">playable_characters</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>].<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-ivar">@character_2</span> = <span class="ruby-identifier">playable_characters</span>[<span class="ruby-identifier">choice</span>].<span class="ruby-identifier">dup</span>
+  <span class="ruby-keyword">end</span>
+  <span class="ruby-ivar">@character_2</span>.<span class="ruby-identifier">give_name</span>(<span class="ruby-ivar">@name_2</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-display_rules" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">display_rules</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Displays rules and lore of the game.</p>
+
+          <div class="method-source-code" id="display_rules-source">
+            <pre><span class="ruby-comment"># File Project/Game.rb, line 61</span>
+    <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">display_rules</span>
+      <span class="ruby-identifier">lore</span> = <span class="ruby-identifier">&lt;&lt;~TEXT</span>
+<span class="ruby-value">      ====================================      LORE    ===============================================
+      After many years, noble battles, great inventions, the blossoming of civilization, 
+      the world is... about to end? 
+      You don&#39;t know exactly what does it mean. To be honest, you are almost sure that nobody 
+      does. However, every sorcerer, witch, mag, fortuneteller, future teller, magic goat and 
+      tea grounds agree: THE END IS NEAR. You find that message plausible, the world you live 
+      in looks like a shadow of it pasts self. Only old artifacts, ruins, forgotten technology 
+      and stories remain after the glory of the old days. You live in the so-called 
+      Eye of the World - the area around the big lake. One of a few viable places. 
+      The terrains further f
+      rom the lakes are too dry for any alive being. Moreover, every decade, 
+      every year, every month, every day, every hour the lake becomes smaller, smaller and smaller.  
+      However, there is hope! Not for all the peasants around but for YOU - a strong traveler. 
+      A few weeks ago, a crow with a message arrived to yours Eye of the World. Some powerful 
+      wizard makes Noah&#39;s Ark for best humans, elves and dwarfs.
+      He can only take one person from this area with him. Finally, you have a good reason to find 
+      and kill that one annoying traveler that destroys your reputation and claims to be 
+      better than you...
+      =================================================================================================
+</span><span class="ruby-identifier">      TEXT</span>
+
+      <span class="ruby-identifier">rules</span> = <span class="ruby-identifier">&lt;&lt;~TEXT</span>
+<span class="ruby-value">      ____________BASIC INFORMATION___________
+      This is a text RPG game designed for 2 
+      players. Everything takes place in terminal 
+      and in your ★imagination★. It&#39;s the 
+      turn-based game so you and your oponent 
+      make moves for turns.
+
+      ____________GOAL OF THE GAME____________
+      Goal of the game is to kill other player
+      or to survive longer than him.
+
+      __________________TURN__________________
+      1. Beginning
+      You can open your inventory or check your 
+      stats.
+      2. Move
+      In your turn, you have to travel to the
+      field next to the previous one you were
+      standing on. The board is a circle.
+      (If you want to know why, your welcome to
+      read the lore above). Fields are either Lands,
+      where new monsters and tresures apper or
+      Inhabitated Areas, where you make some 
+      activities. If you come across other player
+      you are welcome to attack.
+
+     __________________CONTROLS________________
+     Use integers to make choices or words written
+     in square brackets - [Example].  You can end
+     game by writing \&quot;Exit\&quot; anytime (besides
+     chosing name - name Exit is too cool to be 
+     removed).
+
+      ________________CHARACTER_______________
+      Thera are few possible classes of 
+      characters. Your character, called in game
+      a traveler, is leveluping. Killing an 
+      enemies gives you points. Every 10 od them
+      transfer into additional strength or power
+      (depends on type of enemy you killed).
+      Every traveler can have 4 items. Obviously
+      your character don&#39;t have 10 hands so only
+      one weapon can be used at the time as well
+      as one armor. Make sure it&#39;s in right slot.
+      (Sword hidden in your backpack won&#39;t help you)
+
+      _________________REST____________________
+      Almost everything is described, so you 
+      surely figure everything out... or the 
+      fantasy world will be more mysterious.
+      Netherless, I belive in you ✰
+      Good luck and have fun!
+</span><span class="ruby-identifier">      TEXT</span>
+      
+      <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;\n\n&quot;</span>
+      <span class="ruby-identifier">print</span> <span class="ruby-identifier">lore</span>
+      <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;\n&quot;</span>
+      <span class="ruby-identifier">print</span> <span class="ruby-identifier">rules</span>
+      <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;\n[Exit with Enter]&quot;</span>
+      <span class="ruby-identifier">gets</span>
+    <span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-start" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">start</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Opens menu of the <a href="Game.html"><code>Game</code></a></p>
+
+          <div class="method-source-code" id="start-source">
+            <pre><span class="ruby-comment"># File Project/Game.rb, line 31</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\nHi! Welome to the \&quot;Eyes of the World\&quot; a simple Text RPG game!&quot;</span>
+  
+  <span class="ruby-identifier">loop</span> <span class="ruby-keyword">do</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n     MENU:&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;--------------&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;1. Start Game&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;2. Rules &amp; Lore&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;3. Exit&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;--------------&quot;</span>
+  
+    <span class="ruby-identifier">choice</span> = <span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>.<span class="ruby-identifier">to_i</span>
+  
+    <span class="ruby-keyword">case</span> <span class="ruby-identifier">choice</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">1</span>
+      <span class="ruby-identifier">start_game</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">2</span>
+      <span class="ruby-identifier">display_rules</span>
+    <span class="ruby-keyword">when</span> <span class="ruby-value">3</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Thanks for starting the game and goodbye!&quot;</span>
+      <span class="ruby-keyword">break</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Invalid choice. Please try again.&quot;</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-start_game" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">start_game</span><span
+              class="method-args">()</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Starts game</p>
+
+          <div class="method-source-code" id="start_game-source">
+            <pre><span class="ruby-comment"># File Project/Game.rb, line 150</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">start_game</span>
+  <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n&quot;</span>
+
+  <span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">chosing_characters</span>
+
+    <span class="ruby-identifier">playable_characters</span> = <span class="ruby-keyword">nil</span>
+    <span class="ruby-constant">File</span>.<span class="ruby-identifier">open</span>(<span class="ruby-string">&quot;characters.txt&quot;</span>, <span class="ruby-string">&quot;rb&quot;</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
+      <span class="ruby-identifier">playable_characters</span> = <span class="ruby-constant">Marshal</span>.<span class="ruby-identifier">load</span>(<span class="ruby-identifier">file</span>.<span class="ruby-identifier">read</span>)
+    <span class="ruby-keyword">end</span>
+    
+    <span class="ruby-comment"># Character select player 1</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;PLAYER 1\n&quot;</span>
+    <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Write a name of your character: &quot;</span>
+    <span class="ruby-ivar">@name_1</span> = <span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@name_1</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">20</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Quite a long name... Hope you remember it&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;From now on you are #{@name_1}. Now it&#39;s time to select a character class: &quot;</span>
+    <span class="ruby-identifier">playable_characters</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">element</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">playable_characters</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{index + 1}. #{element.type}: \tStrength #{element.strength}, \tPower #{element.power}, \tHP #{element.hp}&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">choice</span> = <span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">choice</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;exit&quot;</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">choice</span> = <span class="ruby-identifier">choice</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">choice</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">choice</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">playable_characters</span>.<span class="ruby-identifier">length</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;EASTER EGG character for invalid input in character selection: Frog&quot;</span>
+      <span class="ruby-ivar">@character_1</span> = <span class="ruby-identifier">playable_characters</span>[<span class="ruby-identifier">playable_characters</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>].<span class="ruby-identifier">dup</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@character_1</span> = <span class="ruby-identifier">playable_characters</span>[<span class="ruby-identifier">choice</span>].<span class="ruby-identifier">dup</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@character_1</span>.<span class="ruby-identifier">give_name</span>(<span class="ruby-ivar">@name_1</span>)
+
+    <span class="ruby-comment"># Character select player 2</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n\n\n\n\nPLAYER 2\n&quot;</span>
+    <span class="ruby-identifier">print</span> <span class="ruby-string">&quot;Write a name of your character: &quot;</span>
+    <span class="ruby-ivar">@name_2</span> = <span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@name_2</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">20</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Quite a long name... Hope you remember it&quot;</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;From now on you are #{@name_2}. Now it&#39;s time to select a character class: &quot;</span>
+    <span class="ruby-identifier">playable_characters</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">element</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+      <span class="ruby-keyword">next</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">index</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">playable_characters</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>
+
+      <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{index + 1}. #{element.type}: \tStrength #{element.strength}, \tPower #{element.power}, \tHP #{element.hp}&quot;</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">choice</span> = <span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">choice</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;exit&quot;</span>
+      <span class="ruby-keyword">return</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">choice</span> = <span class="ruby-identifier">choice</span>.<span class="ruby-identifier">to_i</span>
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">choice</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">choice</span> <span class="ruby-operator">&gt;=</span> <span class="ruby-identifier">playable_characters</span>.<span class="ruby-identifier">length</span>
+      <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;EASTER EGG character for invalid input in character selection: Frog&quot;</span>
+      <span class="ruby-ivar">@character_2</span> = <span class="ruby-identifier">playable_characters</span>[<span class="ruby-identifier">playable_characters</span>.<span class="ruby-identifier">length</span> <span class="ruby-operator">-</span> <span class="ruby-value">1</span>].<span class="ruby-identifier">dup</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@character_2</span> = <span class="ruby-identifier">playable_characters</span>[<span class="ruby-identifier">choice</span>].<span class="ruby-identifier">dup</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-ivar">@character_2</span>.<span class="ruby-identifier">give_name</span>(<span class="ruby-ivar">@name_2</span>)
+  <span class="ruby-keyword">end</span>
+
+  
+  <span class="ruby-ivar">@map</span> = <span class="ruby-constant">Map</span>.<span class="ruby-identifier">new</span>
+  <span class="ruby-identifier">if_exit</span> = <span class="ruby-identifier">chosing_characters</span>
+  <span class="ruby-keyword">if</span> <span class="ruby-identifier">if_exit</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-keyword">return</span>
+  <span class="ruby-keyword">end</span>
+
+  <span class="ruby-ivar">@field_1_i</span> = <span class="ruby-value">0</span>
+  <span class="ruby-ivar">@field_2_i</span> = <span class="ruby-ivar">@map</span>.<span class="ruby-identifier">fields</span>.<span class="ruby-identifier">length</span><span class="ruby-operator">/</span><span class="ruby-value">2</span>
+
+  <span class="ruby-ivar">@map</span>.<span class="ruby-identifier">fields</span>[<span class="ruby-ivar">@field_1_i</span>].<span class="ruby-identifier">characters</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@character_1</span>
+  <span class="ruby-ivar">@map</span>.<span class="ruby-identifier">fields</span>[<span class="ruby-ivar">@field_2_i</span>].<span class="ruby-identifier">characters</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-ivar">@character_2</span>
+    
+  <span class="ruby-identifier">player_turn</span> = <span class="ruby-value">1</span> <span class="ruby-comment"># 1 - player 1, 2 - player 2</span>
+
+  <span class="ruby-comment"># Main loop</span>
+  <span class="ruby-keyword">while</span> <span class="ruby-keyword">true</span>
+    <span class="ruby-identifier">name</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">player_turn</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+      <span class="ruby-ivar">@name_1</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@name_2</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">character</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">player_turn</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+      <span class="ruby-ivar">@character_1</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@character_2</span>
+    <span class="ruby-keyword">end</span>
+
+    <span class="ruby-identifier">field</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">player_turn</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+      <span class="ruby-ivar">@field_1_i</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-ivar">@field_2_i</span>
+    <span class="ruby-keyword">end</span> 
+
+    <span class="ruby-identifier">options_before_move</span> = [<span class="ruby-string">&quot;Make a move&quot;</span>, <span class="ruby-string">&quot;Open inventory&quot;</span>, <span class="ruby-string">&quot;Show my stats&quot;</span>]
+
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\n\n\n\n\n\n\nTurn of #{name}!&quot;</span>
+    <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;\nYou are currently in the #{@map.fields[field].name}. #{@map.fields[field].description}&quot;</span>
+    
+    <span class="ruby-comment"># Loop for actions before move</span>
+    <span class="ruby-keyword">while</span> <span class="ruby-keyword">true</span> 
+      <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\nOptions:&quot;</span>
+      <span class="ruby-identifier">options_before_move</span>.<span class="ruby-identifier">each_with_index</span> <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">option</span>, <span class="ruby-identifier">index</span><span class="ruby-operator">|</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{index+1}. #{option}&quot;</span>
+      <span class="ruby-keyword">end</span>
+
+      <span class="ruby-comment"># Player&#39;s choice</span>
+      <span class="ruby-identifier">choice</span> = <span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">choice</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;exit&quot;</span>
+        <span class="ruby-keyword">return</span>
+      <span class="ruby-keyword">end</span>
+      <span class="ruby-identifier">choice</span> = <span class="ruby-identifier">choice</span>.<span class="ruby-identifier">to_i</span>
+      <span class="ruby-keyword">if</span> <span class="ruby-identifier">choice</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">choice</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">options_before_move</span>.<span class="ruby-identifier">length</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Invalid input. Write an integer (in right range)&quot;</span>
+
+      <span class="ruby-comment"># Make move</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">choice</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+        <span class="ruby-identifier">neighbors</span> = <span class="ruby-ivar">@map</span>.<span class="ruby-identifier">neighbors</span>(<span class="ruby-identifier">field</span>)
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\nYou can go to:&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;1. #{neighbors[0]}&quot;</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;2. #{neighbors[1]}&quot;</span>
+        <span class="ruby-identifier">where</span> = <span class="ruby-identifier">gets</span>.<span class="ruby-identifier">chomp</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">where</span>.<span class="ruby-identifier">downcase</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;exit&quot;</span>
+          <span class="ruby-keyword">return</span>
+        <span class="ruby-keyword">end</span>
+
+        <span class="ruby-identifier">where</span> = <span class="ruby-identifier">where</span>.<span class="ruby-identifier">to_i</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">where</span> <span class="ruby-operator">&lt;</span> <span class="ruby-value">1</span> <span class="ruby-operator">||</span> <span class="ruby-identifier">where</span> <span class="ruby-operator">&gt;</span> <span class="ruby-value">2</span>
+          <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\nInvalid input. Write an integer (in right range)&quot;</span>
+        <span class="ruby-keyword">else</span>
+          <span class="ruby-identifier">where</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">where</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+            <span class="ruby-identifier">field</span> <span class="ruby-operator">+=</span> <span class="ruby-value">1</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">field</span> <span class="ruby-operator">-=</span> <span class="ruby-value">1</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-ivar">@map</span>.<span class="ruby-identifier">fields</span>[<span class="ruby-identifier">field</span>].<span class="ruby-identifier">characters</span>.<span class="ruby-identifier">delete</span>(<span class="ruby-identifier">character</span>)
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">player_turn</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+            <span class="ruby-ivar">@field_1_i</span>  = <span class="ruby-identifier">where</span>
+          <span class="ruby-keyword">else</span>
+            <span class="ruby-ivar">@field_2_i</span> = <span class="ruby-identifier">where</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-identifier">answer</span> = <span class="ruby-ivar">@map</span>.<span class="ruby-identifier">fields</span>[<span class="ruby-identifier">field</span>].<span class="ruby-identifier">interface</span>(<span class="ruby-identifier">character</span>, <span class="ruby-ivar">@map</span>)
+          
+          <span class="ruby-keyword">if</span> <span class="ruby-identifier">answer</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+            <span class="ruby-keyword">return</span>
+          <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">answer</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n\n\n\nTHE END OF THE GAME&quot;</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{@name_1} wins!&quot;</span>
+            <span class="ruby-keyword">return</span>
+          <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">answer</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;\n\n\n\nTHE END OF THE GAME&quot;</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{@name_2} wins!&quot;</span>
+            <span class="ruby-keyword">return</span>
+          <span class="ruby-keyword">end</span>
+          <span class="ruby-keyword">break</span>
+        <span class="ruby-keyword">end</span>
+
+      <span class="ruby-comment"># Open inventory</span>
+      <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">choice</span> <span class="ruby-operator">==</span> <span class="ruby-value">2</span>
+        <span class="ruby-identifier">answer</span> = <span class="ruby-identifier">character</span>.<span class="ruby-identifier">open_inventory</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">answer</span> <span class="ruby-operator">!=</span> <span class="ruby-keyword">nil</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">answer</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Item</span>)
+          <span class="ruby-identifier">field</span>.<span class="ruby-identifier">items</span> <span class="ruby-operator">&lt;&lt;</span> <span class="ruby-identifier">answer</span>
+        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">answer</span> <span class="ruby-operator">==</span> <span class="ruby-keyword">true</span>
+          <span class="ruby-keyword">return</span>
+        <span class="ruby-keyword">end</span>
+
+      <span class="ruby-comment"># Show my stats</span>
+      <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">character</span>.<span class="ruby-identifier">display</span>
+      <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+    <span class="ruby-identifier">player_turn</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">player_turn</span> <span class="ruby-operator">==</span> <span class="ruby-value">1</span>
+      <span class="ruby-value">2</span>
+    <span class="ruby-keyword">else</span>
+      <span class="ruby-value">1</span>
+    <span class="ruby-keyword">end</span>
+  <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.5.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+

@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>class FightSimulator - RDoc Documentation</title>
+
+<script type="text/javascript">
+  var rdoc_rel_prefix = "./";
+  var index_rel_prefix = "./";
+</script>
+
+<script src="./js/navigation.js" defer></script>
+<script src="./js/search.js" defer></script>
+<script src="./js/search_index.js" defer></script>
+<script src="./js/searcher.js" defer></script>
+<script src="./js/darkfish.js" defer></script>
+
+<link href="./css/fonts.css" rel="stylesheet">
+<link href="./css/rdoc.css" rel="stylesheet">
+
+
+<body id="top" role="document" class="class">
+<nav role="navigation">
+  <div id="project-navigation">
+    <div id="home-section" role="region" title="Quick navigation" class="nav-section">
+  <h2>
+    <a href="./index.html" rel="home">Home</a>
+  </h2>
+
+  <div id="table-of-contents-navigation">
+    <a href="./table_of_contents.html#pages">Pages</a>
+    <a href="./table_of_contents.html#classes">Classes</a>
+    <a href="./table_of_contents.html#methods">Methods</a>
+  </div>
+</div>
+
+    <div id="search-section" role="search" class="project-section initially-hidden">
+  <form action="#" method="get" accept-charset="utf-8">
+    <div id="search-field-wrapper">
+      <input id="search-field" role="combobox" aria-label="Search"
+             aria-autocomplete="list" aria-controls="search-results"
+             type="text" name="search" placeholder="Search" spellcheck="false"
+             title="Type to search, Up and Down to navigate, Enter to load">
+    </div>
+
+    <ul id="search-results" aria-label="Search Results"
+        aria-busy="false" aria-expanded="false"
+        aria-atomic="false" class="initially-hidden"></ul>
+  </form>
+</div>
+
+  </div>
+
+  
+
+  <div id="class-metadata">
+    
+    
+<div id="parent-class-section" class="nav-section">
+  <h3>Parent</h3>
+
+  <p class="link">Object
+</div>
+
+    
+    
+    
+<!-- Method Quickref -->
+<div id="method-list-section" class="nav-section">
+  <h3>Methods</h3>
+
+  <ul class="link-list" role="directory">
+    <li ><a href="#method-i-calculate_score_player_power">#calculate_score_player_power</a>
+    <li ><a href="#method-i-calculate_score_player_strength">#calculate_score_player_strength</a>
+    <li ><a href="#method-i-compare_scores_being">#compare_scores_being</a>
+    <li ><a href="#method-i-compare_scores_players">#compare_scores_players</a>
+    <li ><a href="#method-i-vs_demon">#vs_demon</a>
+    <li ><a href="#method-i-vs_ghost">#vs_ghost</a>
+    <li ><a href="#method-i-vs_monster">#vs_monster</a>
+    <li ><a href="#method-i-vs_player">#vs_player</a>
+  </ul>
+</div>
+
+  </div>
+</nav>
+
+<main role="main" aria-labelledby="class-FightSimulator">
+  <h1 id="class-FightSimulator" class="class">
+    class FightSimulator
+  </h1>
+
+  <section class="description">
+    
+<p>Simulates fights between characters and beings.</p>
+
+  </section>
+
+  <section id="5Buntitled-5D" class="documentation-section">
+
+
+
+
+
+     <section id="public-instance-5Buntitled-5D-method-details" class="method-section">
+       <header>
+         <h3>Public Instance Methods</h3>
+       </header>
+
+      <div id="method-i-calculate_score_player_power" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">calculate_score_player_power</span><span
+              class="method-args">(character)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Calculate score of player in fight with power.</p>
+
+          <div class="method-source-code" id="calculate_score_player_power-source">
+            <pre><span class="ruby-comment"># File Project/FightSimulator.rb, line 92</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calculate_score_player_power</span>(<span class="ruby-identifier">character</span>)
+    <span class="ruby-identifier">score</span> = <span class="ruby-identifier">character</span>.<span class="ruby-identifier">power</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">character</span>.<span class="ruby-identifier">b_power</span>
+    <span class="ruby-identifier">score</span> <span class="ruby-operator">+=</span>  <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_weapon</span>.<span class="ruby-identifier">power</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_weapon</span>
+    <span class="ruby-identifier">score</span> <span class="ruby-operator">+=</span>  <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_armor</span>.<span class="ruby-identifier">power</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_armor</span>
+    <span class="ruby-identifier">score</span> <span class="ruby-operator">+=</span>  <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_1</span>.<span class="ruby-identifier">power</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_1</span>
+    <span class="ruby-identifier">score</span> <span class="ruby-operator">+=</span>  <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_2</span>.<span class="ruby-identifier">power</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_2</span>
+  
+    <span class="ruby-identifier">score</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">8</span>)
+
+    <span class="ruby-identifier">score</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-calculate_score_player_strength" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">calculate_score_player_strength</span><span
+              class="method-args">(character)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Calculate score of player in fight with strength.</p>
+
+          <div class="method-source-code" id="calculate_score_player_strength-source">
+            <pre><span class="ruby-comment"># File Project/FightSimulator.rb, line 77</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">calculate_score_player_strength</span>(<span class="ruby-identifier">character</span>)
+  <span class="ruby-identifier">score</span> = <span class="ruby-identifier">character</span>.<span class="ruby-identifier">strength</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">character</span>.<span class="ruby-identifier">b_strength</span>
+  <span class="ruby-identifier">score</span> <span class="ruby-operator">+=</span>  <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_weapon</span>.<span class="ruby-identifier">strength</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_weapon</span>
+  <span class="ruby-identifier">score</span> <span class="ruby-operator">+=</span>  <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_armor</span>.<span class="ruby-identifier">strength</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_armor</span>
+  <span class="ruby-identifier">score</span> <span class="ruby-operator">+=</span>  <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_1</span>.<span class="ruby-identifier">strength</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_1</span>
+  <span class="ruby-identifier">score</span> <span class="ruby-operator">+=</span>  <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_2</span>.<span class="ruby-identifier">strength</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_2</span>
+
+  <span class="ruby-identifier">score</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">8</span>)
+  
+  <span class="ruby-identifier">score</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-compare_scores_being" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">compare_scores_being</span><span
+              class="method-args">(character, being, score_character, score_being, used_stat)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Gives the result of the fight with being.</p>
+
+          <div class="method-source-code" id="compare_scores_being-source">
+            <pre><span class="ruby-comment"># File Project/FightSimulator.rb, line 107</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">compare_scores_being</span>(<span class="ruby-identifier">character</span>, <span class="ruby-identifier">being</span>, <span class="ruby-identifier">score_character</span>, <span class="ruby-identifier">score_being</span>, <span class="ruby-identifier">used_stat</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">score_character</span> <span class="ruby-operator">&gt;</span> <span class="ruby-identifier">score_being</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{character.name} defeated #{being.name}!&quot;</span>
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">used_stat</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;strength&quot;</span>
+            <span class="ruby-identifier">character</span>.<span class="ruby-identifier">add_strength_exp</span>(<span class="ruby-identifier">being</span>.<span class="ruby-identifier">stat</span>)
+            <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{character.name} gained strength-exp!&quot;</span>
+        <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">used_stat</span> <span class="ruby-operator">==</span> <span class="ruby-string">&quot;power&quot;</span>
+            <span class="ruby-identifier">character</span>.<span class="ruby-identifier">add_power_exp</span>(<span class="ruby-identifier">being</span>.<span class="ruby-identifier">stat</span>)
+            <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{character.name} gained power-exp!&quot;</span>
+        <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;Error&quot;</span>
+        <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">return</span> <span class="ruby-value">3</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">score_character</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">score_being</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;Hard battle ended with a draw. #{character.name} walks away safely but #{being.name} remains undefeted.&quot;</span>
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{character.name} was defeated by #{being.name}!&quot;</span>
+        <span class="ruby-identifier">if_dead</span> = <span class="ruby-identifier">character</span>.<span class="ruby-identifier">take_life</span>(<span class="ruby-value">1</span>)
+
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">if_dead</span>
+            <span class="ruby-keyword">return</span> <span class="ruby-value">1</span>
+        <span class="ruby-keyword">end</span> 
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-compare_scores_players" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">compare_scores_players</span><span
+              class="method-args">(character_1, character_2, score_1, score_2)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Gives the result of the fight with being.</p>
+
+          <div class="method-source-code" id="compare_scores_players-source">
+            <pre><span class="ruby-comment"># File Project/FightSimulator.rb, line 136</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">compare_scores_players</span>(<span class="ruby-identifier">character_1</span>, <span class="ruby-identifier">character_2</span>, <span class="ruby-identifier">score_1</span>, <span class="ruby-identifier">score_2</span>)
+    <span class="ruby-keyword">if</span> <span class="ruby-identifier">score_1</span> <span class="ruby-operator">&lt;</span> <span class="ruby-identifier">score_2</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{character_1.name} was defeated by #{character_2.name}!&quot;</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">character_1</span>.<span class="ruby-identifier">item_armor</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Armor</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">character_1</span>.<span class="ruby-identifier">item_armor</span>.<span class="ruby-identifier">try_to_protect</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;However, #{character_1.name} was saved by #{character_1.item_armor.name} and didn&#39;t lost HP!&quot;</span>
+        <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">if_dead</span> = <span class="ruby-identifier">character_1</span>.<span class="ruby-identifier">take_life</span>(<span class="ruby-value">1</span>)
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">if_dead</span> 
+                <span class="ruby-keyword">return</span> <span class="ruby-value">1</span>
+            <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">elsif</span> <span class="ruby-identifier">score_1</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">score_2</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-string">&quot;DRAW!!!&quot;</span>
+    <span class="ruby-keyword">else</span>
+        <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;#{character_2.name} was defeated by #{character_1.name}!&quot;</span>
+        <span class="ruby-keyword">if</span> <span class="ruby-identifier">character_2</span>.<span class="ruby-identifier">item_armor</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Armor</span>) <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">character_2</span>.<span class="ruby-identifier">item_armor</span>.<span class="ruby-identifier">try_to_protect</span>
+            <span class="ruby-identifier">puts</span> <span class="ruby-node">&quot;However, #{character_2.name} was saved by #{character_2.item_armor.name} and didn&#39;t lost HP!&quot;</span>
+        <span class="ruby-keyword">else</span>
+            <span class="ruby-identifier">if_dead</span> = <span class="ruby-identifier">character_1</span>.<span class="ruby-identifier">take_life</span>(<span class="ruby-value">1</span>) 
+            <span class="ruby-keyword">if</span> <span class="ruby-identifier">if_dead</span> 
+                <span class="ruby-keyword">return</span> <span class="ruby-value">2</span>
+            <span class="ruby-keyword">end</span>
+        <span class="ruby-keyword">end</span>
+    <span class="ruby-keyword">end</span>
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-vs_demon" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">vs_demon</span><span
+              class="method-args">(character, being)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Simulates a fight between a character and a demon being.</p>
+
+          <div class="method-source-code" id="vs_demon-source">
+            <pre><span class="ruby-comment"># File Project/FightSimulator.rb, line 57</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">vs_demon</span>(<span class="ruby-identifier">character</span>, <span class="ruby-identifier">being</span>)
+  <span class="ruby-identifier">score_character_strength</span> = <span class="ruby-identifier">calculate_score_player_power</span>(<span class="ruby-identifier">character</span>)
+  <span class="ruby-identifier">score_character_power</span> = <span class="ruby-identifier">calculate_score_player_strength</span>(<span class="ruby-identifier">character</span>)
+  <span class="ruby-identifier">score_being</span> = <span class="ruby-identifier">being</span>.<span class="ruby-identifier">stat</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">8</span>)
+  
+  <span class="ruby-identifier">score_character</span> = [<span class="ruby-identifier">score_character_strength</span>, <span class="ruby-identifier">score_character_power</span>].<span class="ruby-identifier">min</span> 
+  <span class="ruby-identifier">score_character</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_weapon</span>.<span class="ruby-identifier">vs_demon</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_weapon</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_weapon</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Weapon</span>)
+
+  <span class="ruby-identifier">used</span> = <span class="ruby-keyword">if</span> <span class="ruby-identifier">score_character</span> <span class="ruby-operator">==</span> <span class="ruby-identifier">score_character_strength</span>
+    <span class="ruby-string">&quot;strength&quot;</span>
+  <span class="ruby-keyword">else</span>
+    <span class="ruby-string">&quot;force&quot;</span>
+  <span class="ruby-keyword">end</span>
+  
+  <span class="ruby-identifier">compare_scores_being</span>(<span class="ruby-identifier">character</span>, <span class="ruby-identifier">being</span>, <span class="ruby-identifier">score_character</span>, <span class="ruby-identifier">score_being</span>, <span class="ruby-identifier">used</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-vs_ghost" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">vs_ghost</span><span
+              class="method-args">(character, being)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Simulates a fight between a character and a ghost being.</p>
+
+          <div class="method-source-code" id="vs_ghost-source">
+            <pre><span class="ruby-comment"># File Project/FightSimulator.rb, line 45</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">vs_ghost</span>(<span class="ruby-identifier">character</span>, <span class="ruby-identifier">being</span>)
+  <span class="ruby-identifier">score_character</span> = <span class="ruby-identifier">calculate_score_player_power</span>(<span class="ruby-identifier">character</span>)
+  <span class="ruby-identifier">score_character</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_weapon</span>.<span class="ruby-identifier">vs_ghost</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_weapon</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_weapon</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Weapon</span>)
+
+  <span class="ruby-identifier">score_being</span> = <span class="ruby-identifier">being</span>.<span class="ruby-identifier">stat</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">8</span>)
+  
+  <span class="ruby-identifier">compare_scores_being</span>(<span class="ruby-identifier">character</span>, <span class="ruby-identifier">being</span>, <span class="ruby-identifier">score_character</span>, <span class="ruby-identifier">score_being</span>, <span class="ruby-string">&quot;power&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-vs_monster" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">vs_monster</span><span
+              class="method-args">(character, being)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Simulates a fight between a character and a monster being.</p>
+
+          <div class="method-source-code" id="vs_monster-source">
+            <pre><span class="ruby-comment"># File Project/FightSimulator.rb, line 33</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">vs_monster</span>(<span class="ruby-identifier">character</span>, <span class="ruby-identifier">being</span>)
+  <span class="ruby-identifier">score_character</span> = <span class="ruby-identifier">calculate_score_player_strength</span>(<span class="ruby-identifier">character</span>)
+  <span class="ruby-identifier">score_character</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_weapon</span>.<span class="ruby-identifier">vs_monster</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_weapon</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">character</span>.<span class="ruby-identifier">item_weapon</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Weapon</span>)
+
+  <span class="ruby-identifier">score_being</span> = <span class="ruby-identifier">being</span>.<span class="ruby-identifier">stat</span> <span class="ruby-operator">+</span> <span class="ruby-identifier">rand</span>(<span class="ruby-value">8</span>)
+  
+  <span class="ruby-identifier">compare_scores_being</span>(<span class="ruby-identifier">character</span>, <span class="ruby-identifier">being</span>, <span class="ruby-identifier">score_character</span>, <span class="ruby-identifier">score_being</span>, <span class="ruby-string">&quot;strength&quot;</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+      <div id="method-i-vs_player" class="method-detail ">
+        <div class="method-header">
+          <div class="method-heading">
+            <span class="method-name">vs_player</span><span
+              class="method-args">(character_1, character_2)</span>
+            <span class="method-click-advice">click to toggle source</span>
+          </div>
+        </div>
+
+        <div class="method-description">
+          <p>Simulates a fight between two characters.</p>
+
+          <div class="method-source-code" id="vs_player-source">
+            <pre><span class="ruby-comment"># File Project/FightSimulator.rb, line 20</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier ruby-title">vs_player</span>(<span class="ruby-identifier">character_1</span>, <span class="ruby-identifier">character_2</span>)
+  <span class="ruby-identifier">score_1</span> = <span class="ruby-identifier">calculate_score_player_strength</span>(<span class="ruby-identifier">character_1</span>)
+  <span class="ruby-identifier">score_2</span> = <span class="ruby-identifier">calculate_score_player_strength</span>(<span class="ruby-identifier">character_2</span>)
+
+  <span class="ruby-identifier">score_1</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">character_1</span>.<span class="ruby-identifier">item_weapon</span>.<span class="ruby-identifier">vs_player</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">character_1</span>.<span class="ruby-identifier">item_weapon</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">character_1</span>.<span class="ruby-identifier">item_weapon</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Weapon</span>)
+  <span class="ruby-identifier">score_2</span> <span class="ruby-operator">+=</span> <span class="ruby-identifier">character_2</span>.<span class="ruby-identifier">item_weapon</span>.<span class="ruby-identifier">vs_player</span> <span class="ruby-keyword">if</span> <span class="ruby-identifier">character_2</span>.<span class="ruby-identifier">item_weapon</span> <span class="ruby-operator">&amp;&amp;</span> <span class="ruby-identifier">character_2</span>.<span class="ruby-identifier">item_weapon</span>.<span class="ruby-identifier">kind_of?</span>(<span class="ruby-constant">Weapon</span>)
+  
+  <span class="ruby-identifier">compare_scores_players</span>(<span class="ruby-identifier">character_1</span>, <span class="ruby-identifier">character_2</span>, <span class="ruby-identifier">score_1</span>, <span class="ruby-identifier">score_2</span>)
+<span class="ruby-keyword">end</span></pre>
+          </div>
+        </div>
+
+
+      </div>
+
+    </section>
+
+  </section>
+</main>
+
+
+<footer id="validator-badges" role="contentinfo">
+  <p><a href="https://validator.w3.org/check/referer">Validate</a>
+  <p>Generated by <a href="https://ruby.github.io/rdoc/">RDoc</a> 6.5.0.
+  <p>Based on <a href="http://deveiate.org/projects/Darkfish-RDoc/">Darkfish</a> by <a href="http://deveiate.org">Michael Granger</a>.
+</footer>
+
